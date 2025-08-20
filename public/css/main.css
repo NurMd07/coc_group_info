@@ -38,9 +38,11 @@ body {
   height: 100vh;
   height: 100dvh;
 }
+
 body::-webkit-scrollbar {
   display: none;
 }
+
 .loader {
   display: flex;
   justify-content: center;
@@ -48,6 +50,7 @@ body::-webkit-scrollbar {
   height: 100%;
   width: 100%;
 }
+
 .lds-facebook {
   display: inline-block;
   position: relative;
@@ -93,8 +96,10 @@ body::-webkit-scrollbar {
 }
 
 .loader1 {
-  border: 2px solid #f3f3f3; /* Light grey */
-  border-top: 2px solid #3498db; /* Blue */
+  border: 2px solid #f3f3f3;
+  /* Light grey */
+  border-top: 2px solid #3498db;
+  /* Blue */
   border-radius: 50%;
   width: 10px;
   height: 10px;
@@ -105,6 +110,7 @@ body::-webkit-scrollbar {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -131,7 +137,10 @@ body::-webkit-scrollbar {
   display: flex;
   flex-direction: column;
   align-items: end;
+   flex: 0 0 auto;
+  
 }
+
 .header_main {
   width: 100%;
   background-color: #1a191c;
@@ -146,36 +155,40 @@ body::-webkit-scrollbar {
   align-items: center;
   margin-bottom: 0.8em;
 }
+
 .header_subinfo {
   margin-right: 0.4em;
 }
+
 .header .clanlogo {
   width: 2.5em;
   height: 2.5em;
   margin-right: 0.6em;
 }
+
 .header .coc_logo img {
   width: 4.2em;
   height: 2em;
 }
+
 .text-gradient {
   color: #daa520;
-  background-image: linear-gradient(
-    45deg,
-    #daa520,
-    #f4c430,
-    #ffdb58,
-    #ffec8b,
-    #ffecb0
-  );
+  background-image: linear-gradient(45deg,
+      #daa520,
+      #f4c430,
+      #ffdb58,
+      #ffec8b,
+      #ffecb0);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 .title {
   display: flex;
   align-items: center;
 }
+
 .header h1 {
   font-size: 1.3em;
 
@@ -184,10 +197,12 @@ body::-webkit-scrollbar {
   letter-spacing: 0.5px;
   font-weight: 900;
 }
+
 .clan_info {
   display: flex;
   gap: 10px;
-  font-size: 0.8em;
+  font-size: 0.7em;
+
 }
 
 .cwl_league {
@@ -199,6 +214,7 @@ body::-webkit-scrollbar {
   padding-left: 2.4em;
   position: relative;
 }
+
 .trophies {
   background-color: #f9a825 !important;
   display: flex;
@@ -206,6 +222,7 @@ body::-webkit-scrollbar {
   border-radius: 0.3em;
   align-items: center;
 }
+
 .trophies_count,
 .members_count,
 .cwl_league_name {
@@ -225,6 +242,7 @@ body::-webkit-scrollbar {
   position: absolute;
   left: 0;
 }
+
 .members {
   display: flex;
   padding: 0.2em 0.6em;
@@ -232,12 +250,14 @@ body::-webkit-scrollbar {
   background-color: #455a64 !important;
   align-items: center;
 }
+
 .members svg {
   fill: #fff;
   width: 1.4em;
   height: 1.4em;
   margin-right: 0.3em;
 }
+
 .tag {
   display: flex;
   align-items: center;
@@ -246,10 +266,12 @@ body::-webkit-scrollbar {
   background-color: #212121 !important;
   fill: #fff;
 }
+
 .tag svg {
   width: 0.8em !important;
   height: 0.8em !important;
 }
+
 .tag_value {
   font-size: 0.7em;
 
@@ -264,20 +286,32 @@ body::-webkit-scrollbar {
   width: 100%;
   gap: 0.8em;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .group_info {
   border-radius: 0.5em;
   width: 92%;
-  height: 65dvh;
+  height: 61dvh;
+  min-height: 61dvh;
   background-color: rgba(0, 0, 0, 0.7);
   position: relative;
   display: flex;
   flex-direction: column;
-  overflow: scroll;
+  flex: 1;
   overflow-x: hidden;
   box-sizing: border-box;
+   margin-top: 1.5em;
 }
+
+@media (min-height: 700px) {
+  .group_info {
+      margin-top: 2em;
+    height: 67dvh;
+    min-height: 67dvh;
+  }
+}
+
 .group_header {
   padding: 0.7em 0.5em;
   position: sticky;
@@ -288,6 +322,7 @@ body::-webkit-scrollbar {
   justify-content: space-evenly;
   align-items: center;
 }
+
 .wp_name_title,
 .coc_name_title {
   font-size: 0.85em;
@@ -299,14 +334,17 @@ body::-webkit-scrollbar {
 
   font-family: Clash Bold;
 }
+
 .coc_name_title {
   border-bottom: 2px solid #d34835;
 }
+
 .placeholder1 {
   visibility: hidden;
 
   background-color: red;
 }
+
 .wp_name_title {
   border-bottom: 2px solid #19bf4a;
 }
@@ -320,10 +358,12 @@ body::-webkit-scrollbar {
 
 .group_content {
   width: 100%;
+  height: 100%;
 
   overflow: scroll;
   overflow-x: hidden;
 }
+
 .group_content .list_item:nth-child(2n) {
   background-color: rgba(0, 0, 0, 0.3);
 }
@@ -336,6 +376,7 @@ body::-webkit-scrollbar {
 .list_item {
   padding: 0.6em;
 }
+
 .wp_name,
 .coc_name,
 .dash {
@@ -349,8 +390,10 @@ body::-webkit-scrollbar {
 
   box-sizing: border-box;
 
-  scrollbar-width: none; /* Firefox, Safari 18.2+, Chromium 121+ */
+  scrollbar-width: none;
+  /* Firefox, Safari 18.2+, Chromium 121+ */
 }
+
 .wp_name::-webkit-scrollbar,
 .coc_name::-webkit-scrollbar {
   display: none;
@@ -364,6 +407,7 @@ body::-webkit-scrollbar {
   justify-content: center;
   flex-wrap: wrap;
 }
+
 .list_item_column2 {
   display: flex;
   justify-content: center;
@@ -371,6 +415,7 @@ body::-webkit-scrollbar {
   width: 15%;
   justify-content: center;
 }
+
 .list_item_column3 {
   display: flex;
   justify-content: center;
@@ -389,6 +434,7 @@ body::-webkit-scrollbar {
 .coc_name {
   width: 68%;
 }
+
 .th_icon {
   width: 12%;
   padding-top: 0.5em;
@@ -401,6 +447,7 @@ body::-webkit-scrollbar {
   width: 100%;
   padding-right: 1.5em;
 }
+
 .coc_info {
   width: 100%;
   gap: 0.7em;
@@ -410,12 +457,14 @@ body::-webkit-scrollbar {
   color: #bfbfbf;
   font-weight: bold;
 }
+
 .coc_xp {
   gap: 3px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .coc_xp_img {
   width: 0.7em;
   height: 0.7em;
@@ -434,6 +483,7 @@ body::-webkit-scrollbar {
   cursor: pointer;
   border-bottom: 1px solid gold;
 }
+
 .title .text-gradient:active {
   opacity: 0.8;
 }
@@ -442,16 +492,19 @@ body::-webkit-scrollbar {
   opacity: 0.5;
   cursor: pointer;
 }
+
 .coc_logo img:active {
   opacity: 0.8;
   cursor: pointer;
 }
+
 .cwl_league:hover,
 .members:hover,
 .trophies:hover,
 .tag.tag:hover {
   opacity: 0.9;
 }
+
 .cwl_league:active,
 .members:active,
 .trophies:active,
@@ -477,27 +530,33 @@ body::-webkit-scrollbar {
   border-top-right-radius: 0;
   flex: 0 0 auto;
 }
+
 .group_footer_left {
   width: 25%;
   cursor: pointer;
 }
+
 .group_footer_left:hover {
   opacity: 0.8;
 }
+
 .group_footer_left:active {
   opacity: 0.5;
 }
+
 .group_footer_left svg {
   width: 2em;
   height: 2em;
   fill: #fff;
   margin-right: 0.4em;
 }
+
 .group_info_title {
   width: 50%;
 
   text-align: center;
 }
+
 .wp_member_count {
   display: flex;
   align-items: center;
@@ -505,20 +564,24 @@ body::-webkit-scrollbar {
 
   width: 25%;
 }
+
 .wp_member_count p {
   font-size: 1.6em;
   margin: 0;
 }
+
 .wp_member_count svg {
   fill: #fff;
   width: 2em;
   height: 2em;
   margin-right: 0.4em;
 }
+
 .container {
   bottom: 0;
   text-align: center;
   width: 100%;
+  flex: 0 0 auto;
   max-width: 400px;
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.5);
@@ -555,9 +618,11 @@ button {
 .inputbox {
   position: relative;
 }
+
 .inputbox input {
   width: 100%;
 }
+
 .whatsappgif {
   position: absolute;
   right: 0.6em;
@@ -577,35 +642,41 @@ button:hover {
   font-size: 0.9rem;
 }
 
-@media (max-height:600px){
-  .group_info{
+@media (max-height:600px) {
+  .group_info {
     height: 30dvh;
   }
 }
 
 @media (min-width: 768px) {
- 
+
 
   body {
     background-image: url("/images/background2.jpg");
     backdrop-filter: blur(1px);
   }
+
   .main_container {
     flex: 1;
     flex-direction: row;
     gap: 5%;
+  padding:3em;
+
   }
+
   .group_info {
     scrollbar-width: thin;
     scrollbar-color: #555 #333;
     height: 75dvh;
     font-size: 1.1em;
-     width: 60%;
+    width: 60%;
   }
+
   .group_header {
     font-size: 1.2em;
   }
- .th_icon {
+
+  .th_icon {
     width: 1.2em;
   }
 

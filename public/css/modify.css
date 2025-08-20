@@ -2,8 +2,9 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
- 
+
 }
+
 body {
   background-color: #212121;
   background-image: url("/images/background1.jpg");
@@ -21,6 +22,7 @@ body {
   box-sizing: border-box;
   flex-direction: column;
 }
+
 .error {
   margin: 0 auto;
   width: 80%;
@@ -30,13 +32,16 @@ body {
   text-align: center;
   margin-top: 2em;
 }
+
 .blur {
   backdrop-filter: blur(3px);
 }
+
 .hide {
   visibility: hidden;
   position: absolute;
 }
+
 .container {
   display: flex;
   flex-direction: column;
@@ -46,14 +51,16 @@ body {
 
 
 }
+
 .header {
   background-color: #212121;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-    flex:0 0 auto;
+  flex: 0 0 auto;
 }
+
 h1 {
   background: linear-gradient(90deg, #fff 50%, #ffd700 100%);
   background-clip: text;
@@ -67,17 +74,19 @@ h1 {
 
   box-sizing: border-box;
 }
+
 .availableMethods {
   display: flex;
   justify-content: space-around;
-  margin-top: 1.4em;
+  margin-top: 2em;
   background-color: rgba(0, 0, 0, 0.7);
   padding: 1em 0.8em;
-  width: 85%;
+  width: 92%;
   border-radius: 1em;
-  gap: 0.3em;
-  flex:0 0 auto;
+  flex: 0 0 auto;
+  font-size: 0.6em;
 }
+
 @media (min-width: 768px) {
   .availableMethods {
     width: fit-content;
@@ -85,6 +94,7 @@ h1 {
     padding: 1em 2em;
   }
 }
+
 .addPlayer,
 .updatePlayer,
 .deletePlayer {
@@ -92,51 +102,62 @@ h1 {
 
   outline: none;
   cursor: pointer;
-  
+
   border-radius: 5px;
   background-color: transparent;
 }
+
 .addPlayer {
   border: 1px solid #1cd71fd9;
   color: #1cd71fd9;
 }
+
 .updatePlayer {
   border: 1px solid #d7d11cd9;
   color: #d7d11cd9;
 }
+
 .deletePlayer {
   border: 1px solid #d71c1cd9;
   color: #d71c1cd9;
 }
+
 .addPlayer:hover {
   border: 1px solid #1dc60bdf;
   background-color: #1dc60bdf;
   color: #fff;
 }
+
 .updatePlayer:hover {
   border: 1px solid #d7d11c;
   background-color: #d7d11c;
   color: #000;
 }
+
 .deletePlayer:hover {
   border: 1px solid #d71c1c;
   background-color: #d71c1c;
   color: #fff;
 }
+
 .addPlayer:active,
 .updatePlayer:active,
 .deletePlayer:active {
   opacity: 0.5;
 }
+
 .addPlayerForm {
   border: 2px solid #1cd71fd9;
 }
+
 .updatePlayerForm {
   border: 2px solid #d7d11cd9;
 }
+
 .deletePlayerForm {
   border: 2px solid #d71c1cd9;
 }
+
 .addPlayerForm,
 .updatePlayerForm,
 .deletePlayerForm {
@@ -151,7 +172,7 @@ h1 {
   margin: 0 auto;
   border-radius: 10px;
   margin: 3em 1em;
-  flex:0 0 auto;
+  flex: 0 0 auto;
 }
 
 .wpName,
@@ -191,14 +212,17 @@ h1 {
   gap: 10px;
   margin-bottom: 2em;
   cursor: pointer;
-  flex:0 0 auto;
+  flex: 0 0 auto;
 }
+
 .homeBtn:hover {
   opacity: 0.8;
 }
+
 .homeBtn:active {
   opacity: 0.5;
 }
+
 .homeBtn svg {
   fill: #fff;
   width: 1.2em;
