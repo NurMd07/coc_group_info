@@ -1,0 +1,616 @@
+:root {
+  --green: #25d366;
+  --bg: #121212;
+  --white: #ffffff;
+  --red: #ff4d4d;
+  --font: "Segoe UI", Roboto, sans-serif;
+}
+
+@font-face {
+  font-family: "Clash Bold";
+  src: url("/fonts/Clash_Bold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font);
+  background-color: var(--bg);
+  background-image: url("/images/background.jpg");
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: cover;
+  backdrop-filter: blur(1px);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  height: 100dvh;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+.lds-facebook {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-facebook div {
+  display: inline-block;
+  position: absolute;
+  left: 8px;
+  width: 16px;
+  background: #1d40a3;
+  animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+
+.lds-facebook div:nth-child(1) {
+  left: 8px;
+  animation-delay: -0.24s;
+}
+
+.lds-facebook div:nth-child(2) {
+  left: 32px;
+  animation-delay: -0.12s;
+}
+
+.lds-facebook div:nth-child(3) {
+  left: 56px;
+  animation-delay: 0;
+}
+
+@keyframes lds-facebook {
+  0% {
+    top: 8px;
+    height: 64px;
+  }
+
+  50%,
+  100% {
+    top: 24px;
+    height: 32px;
+  }
+}
+
+.loader1 {
+  border: 2px solid #f3f3f3; /* Light grey */
+  border-top: 2px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  animation: spin 1.3s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.snowflake {
+  position: fixed;
+  border-radius: 50%;
+  background: white;
+  opacity: 0.8;
+  pointer-events: none;
+  user-select: none;
+  z-index: 9999;
+  filter: blur(1px);
+  box-shadow: 0 0 8px white;
+}
+
+.hide {
+  display: none !important;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+.header_main {
+  width: 100%;
+  background-color: #1a191c;
+
+  background-position: 50% 90%;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 0.5em 0.8em 0.5em 1.2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8em;
+}
+.header_subinfo {
+  margin-right: 0.4em;
+}
+.header .clanlogo {
+  width: 2.5em;
+  height: 2.5em;
+  margin-right: 0.6em;
+}
+.header .coc_logo img {
+  width: 4.2em;
+  height: 2em;
+}
+.text-gradient {
+  color: #daa520;
+  background-image: linear-gradient(
+    45deg,
+    #daa520,
+    #f4c430,
+    #ffdb58,
+    #ffec8b,
+    #ffecb0
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.title {
+  display: flex;
+  align-items: center;
+}
+.header h1 {
+  font-size: 1.3em;
+
+  background-size: cover;
+
+  letter-spacing: 0.5px;
+  font-weight: 900;
+}
+.clan_info {
+  display: flex;
+  gap: 10px;
+  font-size: 0.8em;
+}
+
+.cwl_league {
+  background-color: #ff5252 !important;
+  display: flex;
+  padding: 0.2em 0.6em;
+  border-radius: 0.3em;
+  align-items: center;
+  padding-left: 2.4em;
+  position: relative;
+}
+.trophies {
+  background-color: #f9a825 !important;
+  display: flex;
+  padding: 0.2em 0.6em;
+  border-radius: 0.3em;
+  align-items: center;
+}
+.trophies_count,
+.members_count,
+.cwl_league_name {
+  font-size: 0.9em;
+}
+
+
+.trophies img {
+  width: 1.2em;
+  height: 1.2em;
+  margin-right: 0.3em;
+}
+
+.cwl_league img {
+  width: 2.2em;
+  height: 2.2em;
+  position: absolute;
+  left: 0;
+}
+.members {
+  display: flex;
+  padding: 0.2em 0.6em;
+  border-radius: 0.3em;
+  background-color: #455a64 !important;
+  align-items: center;
+}
+.members svg {
+  fill: #fff;
+  width: 1.4em;
+  height: 1.4em;
+  margin-right: 0.3em;
+}
+.tag {
+  display: flex;
+  align-items: center;
+  padding: 0.2em 0.6em;
+  border-radius: 0.3em;
+  background-color: #212121 !important;
+  fill: #fff;
+}
+.tag svg {
+  width: 0.8em !important;
+  height: 0.8em !important;
+}
+.tag_value {
+  font-size: 0.7em;
+
+  margin-left: 0.2em;
+}
+
+.main_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 0.8em;
+  overflow: hidden;
+}
+
+.group_info {
+  border-radius: 0.5em;
+  width: 92%;
+  height: 65dvh;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+.group_header {
+  padding: 0.7em 0.5em;
+  position: sticky;
+  top: 0;
+  flex: 0 0 auto;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.wp_name_title,
+.coc_name_title {
+  font-size: 0.85em;
+  color: #fff;
+  font-weight: bold;
+  padding: 0.4em;
+  text-align: center;
+  width: 40%;
+
+  font-family: Clash Bold;
+}
+.coc_name_title {
+  border-bottom: 2px solid #d34835;
+}
+.placeholder1 {
+  visibility: hidden;
+
+  background-color: red;
+}
+.wp_name_title {
+  border-bottom: 2px solid #19bf4a;
+}
+
+
+.list_item {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.group_content {
+  width: 100%;
+
+  overflow: scroll;
+  overflow-x: hidden;
+}
+.group_content .list_item:nth-child(2n) {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.list_item:hover,
+.group_content .list_item:nth-child(2n):hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.list_item {
+  padding: 0.6em;
+}
+.wp_name,
+.coc_name,
+.dash {
+  font-size: 0.8em;
+  color: #fff;
+  font-weight: bolder;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: center;
+
+  box-sizing: border-box;
+
+  scrollbar-width: none; /* Firefox, Safari 18.2+, Chromium 121+ */
+}
+.wp_name::-webkit-scrollbar,
+.coc_name::-webkit-scrollbar {
+  display: none;
+}
+
+.list_item_column1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.list_item_column2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15%;
+  justify-content: center;
+}
+.list_item_column3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45%;
+
+  flex-wrap: wrap;
+}
+
+.list_item_number {
+  font-weight: 900;
+  padding-left: 0.5em;
+  width: 20%;
+}
+
+.coc_name {
+  width: 68%;
+}
+.th_icon {
+  width: 12%;
+  padding-top: 0.5em;
+}
+
+.wp_number {
+  font-size: 0.6em;
+  color: #d2d2d2;
+  text-align: end;
+  width: 100%;
+  padding-right: 1.5em;
+}
+.coc_info {
+  width: 100%;
+  gap: 0.7em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #bfbfbf;
+  font-weight: bold;
+}
+.coc_xp {
+  gap: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.coc_xp_img {
+  width: 0.7em;
+  height: 0.7em;
+}
+
+.coc_role,
+.coc_xp_value {
+  font-size: 0.6em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title .text-gradient:hover {
+  background-position: 0 100%;
+  cursor: pointer;
+  border-bottom: 1px solid gold;
+}
+.title .text-gradient:active {
+  opacity: 0.8;
+}
+
+.coc_logo img:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+.coc_logo img:active {
+  opacity: 0.8;
+  cursor: pointer;
+}
+.cwl_league:hover,
+.members:hover,
+.trophies:hover,
+.tag.tag:hover {
+  opacity: 0.9;
+}
+.cwl_league:active,
+.members:active,
+.trophies:active,
+.tag.tag:active {
+  opacity: 0.5;
+}
+
+
+.group_footer {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  height: 4em;
+  background-color: #2b7fff;
+  padding: 1em;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.4em;
+  border-radius: 0.5em;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  flex: 0 0 auto;
+}
+.group_footer_left {
+  width: 25%;
+  cursor: pointer;
+}
+.group_footer_left:hover {
+  opacity: 0.8;
+}
+.group_footer_left:active {
+  opacity: 0.5;
+}
+.group_footer_left svg {
+  width: 2em;
+  height: 2em;
+  fill: #fff;
+  margin-right: 0.4em;
+}
+.group_info_title {
+  width: 50%;
+
+  text-align: center;
+}
+.wp_member_count {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  width: 25%;
+}
+.wp_member_count p {
+  font-size: 1.6em;
+  margin: 0;
+}
+.wp_member_count svg {
+  fill: #fff;
+  width: 2em;
+  height: 2em;
+  margin-right: 0.4em;
+}
+.container {
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="text"] {
+  padding: 14px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: none;
+
+  outline: none;
+}
+
+button {
+  margin-top: 15px;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--green);
+  color: var(--white);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.inputbox {
+  position: relative;
+}
+.inputbox input {
+  width: 100%;
+}
+.whatsappgif {
+  position: absolute;
+  right: 0.6em;
+  width: 2em;
+  height: 2em;
+  top: 50%;
+  transform: translateY(-55%);
+}
+
+button:hover {
+  background-color: #1ebe59;
+}
+
+.error {
+  color: var(--red);
+  margin-top: 12px;
+  font-size: 0.9rem;
+}
+
+@media (max-height:600px){
+  .group_info{
+    height: 30dvh;
+  }
+}
+
+@media (min-width: 768px) {
+ 
+
+  body {
+    background-image: url("/images/background2.jpg");
+    backdrop-filter: blur(1px);
+  }
+  .main_container {
+    flex: 1;
+    flex-direction: row;
+    gap: 5%;
+  }
+  .group_info {
+    scrollbar-width: thin;
+    scrollbar-color: #555 #333;
+    height: 75dvh;
+    font-size: 1.1em;
+     width: 60%;
+  }
+  .group_header {
+    font-size: 1.2em;
+  }
+ .th_icon {
+    width: 1.2em;
+  }
+
+  .container {
+    border-radius: 1em;
+    padding: 1.5em;
+  }
+}
