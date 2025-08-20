@@ -11,7 +11,7 @@ body {
   background-position: right;
   background-repeat: no-repeat;
   background-size: cover;
-  backdrop-filter: blur(1px);
+ 
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -34,7 +34,7 @@ body {
 }
 
 .blur {
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(2px);
 }
 
 .hide {
