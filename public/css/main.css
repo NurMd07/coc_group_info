@@ -34,7 +34,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-
+  
   color: var(--white);
   display: flex;
   flex-direction: column;
@@ -297,8 +297,8 @@ body::-webkit-scrollbar {
 .group_info {
   border-radius: 0.5em;
   width: 92%;
-  height: 61dvh;
-  min-height: 61dvh;
+  
+  min-height: 63dvh;
   background-color: rgba(0, 0, 0, 0.7);
   position: relative;
   display: flex;
@@ -306,8 +306,9 @@ body::-webkit-scrollbar {
   flex: 1;
   overflow-x: hidden;
   box-sizing: border-box;
-  margin-top: 1.5em;
-
+  margin-top: 1.8em;
+  backdrop-filter: blur(10x);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 1);
 }
 
 @media (min-height: 700px) {
@@ -589,11 +590,11 @@ body::-webkit-scrollbar {
   width: 100%;
   flex: 0 0 auto;
   max-width: 400px;
-  padding: 1em 1.2em;
+  padding: 1em 1.2em 1em 1.2em;
   background-color: rgba(0, 0, 0, 0.5);
   overflow: hidden;
   box-sizing: border-box;
-  margin-top: 0.3em;
+  margin-top: 0.4em;
 
 }
 
@@ -613,7 +614,7 @@ input[type="text"] {
 }
 
 button {
-  margin-top: 15px;
+  margin-top: 10px;
   padding: 14px;
   font-size: 0.8em;
   font-weight: bold;
