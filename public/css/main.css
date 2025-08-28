@@ -25,15 +25,15 @@ body {
   padding: 0;
   font-family: var(--font);
   background-color: var(--bg);
-  /* background-image: url("/images/background.jpg");
+  background-image: url("/images/background.jpg");
   background-repeat: no-repeat;
   background-position: left;
   background-size: cover;
-  backdrop-filter: blur(1px); */
-  background-image: url("/images/CJbonuqNtHU-HD.jpg");
+  
+  /* background-image: url("/images/CJbonuqNtHU-HD.jpg");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: cover; */
   
   color: var(--white);
   display: flex;
@@ -296,7 +296,7 @@ body::-webkit-scrollbar {
 
 .group_info {
   border-radius: 0.5em;
-  width: 92%;
+  width: 90%;
   
   min-height: 63dvh;
   background-color: rgba(0, 0, 0, 0.7);
@@ -307,8 +307,8 @@ body::-webkit-scrollbar {
   overflow-x: hidden;
   box-sizing: border-box;
   margin-top: 1.8em;
-  backdrop-filter: blur(10x);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 1);
+  backdrop-filter: blur(1.5px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
 }
 
 @media (min-height: 700px) {
@@ -669,6 +669,9 @@ button:hover {
 
   body {
 
+  background-position: 50% 30%;
+
+  
     backdrop-filter: blur(0px);
   }
 

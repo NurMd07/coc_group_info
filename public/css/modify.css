@@ -7,7 +7,7 @@
 
 body {
   background-color: #212121;
-  background-image: url("/images/847433.jpg");
+  background-image: url("/images/CJbonuqNtHU-HD.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -87,7 +87,7 @@ h1 {
   justify-content: space-evenly;
   margin-top: 2em;
   background-color: rgba(0, 0, 0, 0.7);
-  padding: 1em 0.8em;
+  padding: 1.3em 0.8em;
   width: 92%;
   border-radius: 1em;
   flex: 0 0 auto;
@@ -207,11 +207,11 @@ h1 {
 }
 
 .homeBtn {
-  background-color: #198754;
+  background-color: #3d52db;
   color: #fff;
   outline: none;
   border: none;
-  padding: 0.8em 1.2em;
+  padding: 0.7em 1.2em;
   border-radius: 0.5em;
   font-size: 1em;
   display: flex;
@@ -221,6 +221,7 @@ h1 {
   margin-bottom: 2em;
   cursor: pointer;
   flex: 0 0 auto;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 
 .homeBtn:hover {
