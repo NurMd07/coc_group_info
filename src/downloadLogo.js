@@ -3,6 +3,7 @@ const { pipeline } = require("stream/promises")
 const fs = require("fs");
 const path = require('path');
 const { JSONFilePreset } = require('lowdb/node');
+
 const dbPath = path.join(__dirname, '..', 'db.json');
 
 require('dotenv').config();
@@ -11,14 +12,18 @@ const { COC_API_KEY, COC_API_URL } = process.env;
 
 const logoDir = path.join(__dirname, '..', 'public', 'images');
 
-const defaultData = { logoUrl: "", Users: [], CWL: [] }
+const defaultData = { clanInfo:[], Users: [], CWL: [] }
 
-async function downloadLogo() {
+async function downloadLogo(clanId ) {
   try {
+
     const db = await JSONFilePreset(dbPath, defaultData)
+    await db.read();
+    if(db.data.clanInfo.some(clan=> (clan.id === clanId ) && Date.now() - clan.timeStamp < 1000 * 60  )) return;
+
     const apiResponse = await axios({
       method: 'GET',
-      url: COC_API_URL,
+      url: `${COC_API_URL}${clanId}`,
       headers: {
         'Authorization': `Bearer ${COC_API_KEY}`
       }
@@ -39,21 +44,14 @@ async function downloadLogo() {
 
     await pipeline(response.data, writer);
 
-    const favicon = apiResponse.data.badgeUrls.small;
-    const faviconPath = path.join(logoDir, 'favicon.png');
-    const response1 = await axios(
-      {
-        method: 'GET',
-        url: favicon,
-        responseType: 'stream'
-      })
-
-    const writer1 = fs.createWriteStream(faviconPath)
-
-    await pipeline(response1.data, writer1);
-
-
-    db.data.logoUrl = imgName;
+await db.read(); 
+const clanIndex = db.data.clanInfo.findIndex(clan=>clan.id===clanId);
+if(clanIndex !== -1){
+  db.data.clanInfo[clanIndex].logoUrl = imgName;
+  db.data.clanInfo[clanIndex].timeStamp = Date.now();
+}else{
+    db.data.clanInfo.push({id:clanId,logoUrl:imgName,timeStamp:Date.now()})
+}
     await db.write();
   } catch (err) {
     console.log(err)

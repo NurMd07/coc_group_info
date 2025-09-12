@@ -25,16 +25,16 @@ body {
   padding: 0;
   font-family: var(--font);
   background-color: var(--bg);
-  background-image: url("/images/847433.jpg");
+  /* background-image: url("/images/847433.jpg");
   background-repeat: no-repeat;
   background-position: 20% 50%;
   background-size: cover;
-  
-  /* background-image: url("/images/CJbonuqNtHU-HD.jpg");
+  backdrop-filter: blur(0.5px); */
+  background-image: url("/images/847433.jpg");
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover; */
-  
+  background-position: 80%;
+  background-size: cover;
+  backdrop-filter: blur(0.5px);
   color: var(--white);
   display: flex;
   flex-direction: column;
@@ -42,6 +42,7 @@ body {
   align-items: center;
   height: 100vh;
   height: 100dvh;
+
 }
 
 body::-webkit-scrollbar {
@@ -137,6 +138,172 @@ body::-webkit-scrollbar {
   display: none !important;
 }
 
+.home {
+  display: flex;
+
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100dvh;
+  width: 100%;
+  gap: 0;
+}
+
+.home_coc_logo {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 20dvh;
+  width: 100%;
+}
+
+.home_coc_logo img {
+  width: 65dvw;
+}
+
+.clans {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 50dvh;
+  transition: all 3s ease-in-out;
+  gap: 1em;
+ 
+}
+
+.clan_div {
+  border-radius: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1.5em 1em;
+  gap: 0.5em;
+
+  background-color: #292a2d;
+  background: linear-gradient(to bottom,
+      #292a2d,
+      #222223);
+  width: fit-content;
+  margin: 1em;
+  transition: 0.5s;
+
+}
+
+.clan_div:nth-child(1) {
+
+  box-shadow: -20px 20px 10px rgba(0, 0, 0, 0.5);
+
+}
+
+.clan_div:nth-child(2) {
+
+  box-shadow: -20px 20px 10px rgba(0, 0, 0, 0.5);
+}
+
+.clan_div:nth-child(1):hover {
+  transform: scale(0.9);
+  box-shadow: -20px 20px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  background: linear-gradient(to bottom,
+      #daa520,
+      #f4c430,
+      #ffdb58,
+      #ffec8b,
+      #ffecb0);
+
+}
+
+.clan_div:nth-child(2):hover {
+  transform: scale(0.9) skew(-1deg, 1deg);
+  transform: scale(0.9);
+  box-shadow: -20px 20px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s, box-shadow 0.2s;
+  background: linear-gradient(to bottom,
+      #D44242, #D9BB16);
+}
+
+.clan_div p {
+  font-size: 1.15em;
+  font-weight: bold;
+  text-align: center;
+  width: 80%;
+
+  font-family: "Clash Bold";
+}
+
+.clan_div_clanlogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 6.5dvh;
+  width: 16%;
+}
+
+.home_footer {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  flex: 0 0 auto;
+
+  padding: 1em 1.2em 1em 1.2em;
+
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.home_footer form {
+  width: 100%;
+}
+
+.clan_wp_members {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  background-color: #25d366 !important;
+  padding: 0.2em 0.7em;
+  border-radius: 0.3em;
+  gap: 0.4em;
+}
+
+.clan_wp_members svg {
+  fill: #fff;
+  width: 0.9em;
+  height: 0.9em;
+}
+
+.clan_wp_members_count {
+  font-size: 0.9em;
+}
+
+.clan_div .tag {
+  background-color: #000 !important;
+}
+
+@keyframes circle-in-center {
+  from {
+    clip-path: circle(0%);
+  }
+
+  to {
+    clip-path: circle(125%);
+  }
+}
+
+[transition-style="in:circle:center"] {
+  animation: 2.5s cubic-bezier(0.25, 1, 0.3, 1) circle-in-center both;
+}
+
+
 .header {
   width: 100%;
   display: flex;
@@ -176,7 +343,7 @@ body::-webkit-scrollbar {
   height: 2em;
 }
 
-.text-gradient {
+.text-gradient-yellowshade {
   color: #daa520;
   background-image: linear-gradient(45deg,
       #daa520,
@@ -189,12 +356,22 @@ body::-webkit-scrollbar {
   -webkit-text-fill-color: transparent;
 }
 
+.text-gradient-yellowred {
+  color: #D44242;
+  background-image: linear-gradient(90deg, #D44242, #D9BB16);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+
 .title {
   display: flex;
   align-items: center;
 }
 
-.header h1 {
+.clan-name {
   font-size: 1.3em;
 
   background-size: cover;
@@ -297,7 +474,7 @@ body::-webkit-scrollbar {
 .group_info {
   border-radius: 0.5em;
   width: 90%;
-  
+
   min-height: 63dvh;
   background-color: rgba(0, 0, 0, 0.7);
   position: relative;
@@ -307,8 +484,20 @@ body::-webkit-scrollbar {
   overflow-x: hidden;
   box-sizing: border-box;
   margin-top: 1.8em;
-  backdrop-filter: blur(1.5px);
+  backdrop-filter: blur(1px);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+
+}
+
+.clan_page {
+  margin-bottom: 3em;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
 }
 
 @media (min-height: 700px) {
@@ -584,19 +773,6 @@ body::-webkit-scrollbar {
   margin-right: 0.4em;
 }
 
-.container {
-  bottom: 0;
-  text-align: center;
-  width: 100%;
-  flex: 0 0 auto;
-  max-width: 400px;
-  padding: 1em 1.2em 1em 1.2em;
-  background-color: rgba(0, 0, 0, 0.5);
-  overflow: hidden;
-  box-sizing: border-box;
-  margin-top: 0.4em;
-
-}
 
 form {
   display: flex;
@@ -606,11 +782,19 @@ form {
 
 input[type="text"] {
   padding: 14px;
-  font-size: 0.8em;
+  font-size: 0.9em;
   border-radius: 6px;
   border: none;
   text-align: center;
   outline: none;
+  background-color: #676360;
+  box-shadow: inset 0 1.5px 0 #676360, inset 0px 5px 0px hsl(33, 7%, 25%);
+  color: #fff;
+}
+
+input[type="text"]::placeholder {
+  color: #fff;
+  opacity: 1;
 }
 
 button {
@@ -618,7 +802,6 @@ button {
   padding: 14px;
   font-size: 0.8em;
   font-weight: bold;
-
   border: none;
   border-radius: 6px;
   background-color: var(--green);
@@ -626,6 +809,124 @@ button {
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
+
+#join-button {
+  opacity: 0.9;
+  cursor: pointer;
+  font-family: "Clash Bold";
+  box-sizing: border-box;
+  margin: 0;
+  text-decoration: none;
+  padding: 12px;
+  text-align: center;
+  color: #fff;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  transition: transform .1s linear, -webkit-transform .1s linear;
+  font-weight: 700;
+  position: relative;
+  border-radius: 12px;
+  border: 1px solid #000;
+  background: linear-gradient(180deg, #d3ebb7, #85c03f 40%, #366c1b);
+  font-size: 0.7em;
+  line-height: 1.2em;
+  box-shadow: 0 0 0 1px #000, 0 0 0 2px #000, 0 4px 0 2px rgba(0, 0, 0, .2);
+  text-shadow: 0 -2px #000, 0 0 #000, 0 2px #000, 0 4px #000, -1px -1px #000, 1px -1px #000, 1px 0 #000, -1px 0 #000, 1px 1px #000, -1px 1px #000, 1px 2px #000, -1px 2px #000;
+  margin-top: 16px;
+  display: block;
+  letter-spacing: 0.5px;
+}
+
+#join-button:after,
+#join-button:before {
+  position: absolute;
+  content: "";
+  z-index: 0;
+}
+
+#join-button:before {
+  inset: 2px;
+  -webkit-border-radius: 12px;
+  border-radius: 12px;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #7fc427), to(#58a221));
+  background: -webkit-linear-gradient(top, #7fc427, #58a221);
+  background: linear-gradient(180deg, #7fc427, #58a221);
+  -webkit-box-shadow: inset 0 0 .2143rem .0357rem hsla(0, 0%, 100%, .23);
+  box-shadow: inset 0 0 .2143rem .0357rem hsla(0, 0%, 100%, .23);
+}
+
+#join-button:after {
+  top: .375rem;
+  right: .375rem;
+  left: .375rem;
+  height: 50%;
+  -webkit-border-radius: .5rem;
+  border-radius: .5rem;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #d0e878), to(rgba(152, 208, 64, .73)));
+  background: -webkit-linear-gradient(top, #d0e878, rgba(152, 208, 64, .73));
+  background: linear-gradient(180deg, #d0e878, rgba(152, 208, 64, .73));
+}
+
+#join-button span {
+  position: relative;
+  padding: 0 5px;
+  z-index: 1;
+}
+
+#join-button:active {
+
+  transform: scale(0.7);
+}
+
+
+.footer {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 3.5em;
+  right: 1.6em;
+}
+
+
+
+.homeBtn {
+  position: relative;
+  list-style: none;
+  width: 60px;
+  height: 60px;
+  background: white;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 60px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  outline: none;
+  border: 0;
+  font-family: "clash bold";
+}
+
+
+.homeBtn:hover {
+
+  background: linear-gradient(45deg, var(--i), var(--j));
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0);
+}
+
+.homeBtn svg {
+  color: #777;
+  width: 1.5em;
+  height: 1.5em;
+
+}
+
+.homeBtn:hover svg {
+  fill: #fff;
+}
+
+
 
 .inputbox {
   position: relative;
@@ -635,14 +936,80 @@ button {
   width: 100%;
 }
 
-.whatsappgif {
+.btn-whatsapp-pulse {
+  background: #25d366;
+  color: white;
+  position: fixed;
+  bottom: 20px;
+
+  font-size: 2.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 0;
+  height: 0;
+  padding: 0px;
+  text-decoration: none;
+  border-radius: 50%;
+  animation-name: pulse;
+  animation-duration: 2s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
   position: absolute;
-  right: 0.6em;
+  right: -0.2em;
   width: 2em;
   height: 2em;
   top: 50%;
-  transform: translateY(-55%);
+  transform: translateY(-50%);
+  opacity: 0.8;
+  ;
 }
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+  }
+
+  80% {
+    box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+  }
+}
+
+.btn-whatsapp-pulse-border {
+  bottom: 120px;
+  right: 20px;
+  animation-play-state: paused;
+}
+
+.btn-whatsapp-pulse-border::before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  padding: 25px;
+  border: 5px solid #25d366;
+  opacity: 0.75;
+  animation-name: pulse-border;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes pulse-border {
+  0% {
+    padding: 25px;
+    opacity: 0.75;
+  }
+
+  75% {
+    padding: 50px;
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
 
 button:hover {
   background-color: #1ebe59;
@@ -666,23 +1033,62 @@ button:hover {
 
 @media (min-width: 768px) {
 
+  body {
+    background-position: center;
+  }
 
+  .home_coc_logo {
+    height: 25dvh;
+  }
 
+  .home_coc_logo img {
+    width: 25dvw;
+  }
+
+  .clans {
+    flex-direction: row;
+    transform: translateY(-2dvh);
+  }
+
+  .home_footer {
+    width: 100%;
+
+  }
+
+  .home_footer form {
+
+    flex-direction: row;
+    gap: 2em;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .home_footer .inputbox {
+    width: 40%;
+  }
+
+  #join-button {
+    font-size: 0.9em;
+    padding: 14px 20px;
+    margin-top: 0;
+  }
 
   .main_container {
-    flex: 1;
+
     flex-direction: row;
-    gap:4%;
+    gap: 4%;
     padding: 4em;
-    margin-top: -3em;
+
+    width: 75%;
   }
 
   .group_info {
     scrollbar-width: thin;
     scrollbar-color: #555 #333;
-    height: 75dvh;
+    height: 78dvh;
     font-size: 1.1em;
-    width: 60%;
+
   }
 
   .group_header {
@@ -693,8 +1099,5 @@ button:hover {
     width: 1.2em;
   }
 
-  .container {
-    border-radius: 1em;
-    padding: 1.5em;
-  }
+
 }

@@ -1,6 +1,22 @@
 {
-  "logoUrl": "9el7nziU1W6PS_moVl2K-K-uDaYpDWmCbpPTS5DvyyY.png",
+  "clanInfo": [
+    {
+      "id": "QU0LCQP2",
+      "logoUrl": "UJ2RO_pXYj9HsruSi72-K_r6H2D0y2MAmxgeG4SC9X0.png",
+      "timeStamp": 1757692368519
+    },
+    {
+      "id": "2RYLVCC8Y",
+      "logoUrl": "BwA0cscfMIjo4prh7a15eOs4-7l1nsQ55QMliuwpPFA.png",
+      "timeStamp": 1757692368666
+    }
+  ],
   "Users": [
+    {
+      "wpName": "Aryan Singhal",
+      "wpNumber": "+91 9368",
+      "cocId": "#GR2UV2VQC"
+    },
     {
       "wpName": "NurMd Ansari",
       "wpNumber": "+91 7768",

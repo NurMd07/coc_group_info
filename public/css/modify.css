@@ -7,8 +7,8 @@
 
 body {
   background-color: #212121;
-  background-image: url("/images/CJbonuqNtHU-HD.jpg");
-  background-position: center;
+  background-image: url("/images/background.jpg");
+  background-position: 80%;
   background-repeat: no-repeat;
   background-size: cover;
 
@@ -94,13 +94,7 @@ h1 {
   font-size: 0.6em;
 }
 
-@media (min-width: 768px) {
-  .availableMethods {
-    width: fit-content;
-    gap: 1.5em;
-    padding: 1em 2em;
-  }
-}
+
 
 .addPlayer,
 .updatePlayer,
@@ -206,34 +200,75 @@ h1 {
   font-size: 1.1em;
 }
 
+
 .homeBtn {
-  background-color: #00b6ad;
-  color: #fff;
-  outline: none;
-  border: none;
-  padding: 0.7em 1.2em;
-  border-radius: 0.5em;
-  font-size: 1em;
+  position: absolute;
+  bottom: 3.5em;
+  right: 1.6em;
+  list-style: none;
+  width: 60px;
+  height: 60px;
+  background: white;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 60px;
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 2em;
-  cursor: pointer;
-  flex: 0 0 auto;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  transition: 0.5s;
+  outline: none;
+  border: 0;
+  font-family: "clash bold";
 }
+
 
 .homeBtn:hover {
-  opacity: 0.8;
-}
 
-.homeBtn:active {
-  opacity: 0.5;
+  background: linear-gradient(45deg, var(--i), var(--j));
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0);
 }
 
 .homeBtn svg {
+  color: #777;
+  width: 1.5em;
+  height: 1.5em;
+
+}
+
+.homeBtn:hover svg {
   fill: #fff;
-  width: 1.2em;
-  height: 1.2em;
+}
+
+@media (min-width: 768px) {
+
+
+  body {
+    background-image: url("/images/3.jpg");
+
+  }
+
+
+  .availableMethods {
+    width: fit-content;
+    gap: 2.1em;
+    padding: 1.5em 4em;
+    margin-top: 4em;
+    margin-bottom: 5em;
+  }
+
+  .addPlayer,
+  .updatePlayer,
+  .deletePlayer {
+    padding: 0.4em 0.7em;
+    font-size: 1rem;
+
+  }
+
+  .addPlayerForm,
+  .updatePlayerForm,
+  .deletePlayerForm {
+
+    width: 100%;
+
+  }
 }

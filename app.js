@@ -4,13 +4,13 @@ const path = require('path');
 const axios = require("axios");
 const downloadLogo = require('./src/downloadLogo.js');
 const { addPlayers, updatePlayers, deletePlayers } = require('./src/mapPlayers.js');
-require('dotenv').config({ quiet: true})
+require('dotenv').config({ quiet: true })
 
 const { PORT, COC_API_KEY, COC_API_URL, WHATSAPP_GROUP_LINK, JOIN_CODE } = process.env;
 
 const { JSONFilePreset } = require('lowdb/node');
 
-const defaultData = { logoUrl: "", Users: [], CWL: [] }
+const defaultData = { clanInfo: [], Users: [], CWL: [] }
 
 app.use(express.static(path.join(__dirname, 'public')))
 app.set('view engine', 'ejs');
@@ -36,11 +36,12 @@ app.get('/', async (req, res) => {
 
 
 app.get('/clandata', async (req, res) => {
+  const clanId = req.query.clanid || null;
 
   try {
     const apiResponse = await axios({
       method: 'GET',
-      url: COC_API_URL,
+      url: `${COC_API_URL}${clanId}`,
       headers: {
         'Authorization': `Bearer ${COC_API_KEY}`
       }
@@ -49,9 +50,14 @@ app.get('/clandata', async (req, res) => {
     if (apiResponse.status !== 200) {
       throw new Error('Failed to fetch data from Clash of Clans API');
     }
+
+    await downloadLogo(clanId)
     await db.read();
     const cwlLeague = await db.data.CWL.find(item => item.name === apiResponse.data.warLeague.name);
     apiResponse.data.cwlLogo = cwlLeague ? cwlLeague.logo : null;
+    const clan = db.data.clanInfo.find(clan => clan.id === clanId)
+    apiResponse.data.localLogoUrl = clan.logoUrl || null;
+
     const mappedPlayers = await db.data.Users;
 
     apiResponse.data.memberList = mappedPlayers.map(player => {
@@ -110,15 +116,14 @@ app.post('/delete', checkAccess, async (req, res) => {
 
 async function start() {
   db = await JSONFilePreset('db.json', defaultData)
-  await downloadLogo();
-  setInterval(downloadLogo, 6 * 60 * 60 * 1000)
+
 
   app.listen(PORT, () => {
     console.log(`✅ Server running on port ${PORT}`)
   })
   setInterval(() => {
-  console.log('Server alive at', new Date().toISOString());
-}, 60000);
+    console.log('Server alive at', new Date().toISOString());
+  }, 60000);
 }
 
 start().catch(err => {
