@@ -239,8 +239,8 @@ body::-webkit-scrollbar {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 6.5dvh;
-  width: 16%;
+  width: 3.1em;
+  height: 3.1em;
 }
 
 .home_footer {
@@ -1032,7 +1032,10 @@ button:hover {
 }
 
 @media (min-width: 768px) {
-
+.clan_div_clanlogo {
+  width: 4.5em;
+  height: 4.5em;
+}
   body {
     background-position: center;
   }
@@ -1048,6 +1051,7 @@ button:hover {
   .clans {
     flex-direction: row;
     transform: translateY(-2dvh);
+    gap:5em;
   }
 
   .home_footer {
