@@ -121,7 +121,7 @@ async function fetchClanData(clanId) {
     const clanData = await axios.get(`/clandata?clanid=${clanId}`);
 
     clanData.data.memberList.sort((a, b) => b.trophies - a.trophies);
-
+   
     clanDataCache[clanId] = {
       clanLogoUrl: clanData.data.localLogoUrl || 'coc-logo.png',
       cwlLeagueImg: clanData.data.cwlLogo || '',
@@ -281,8 +281,8 @@ function displayClanInfo(clanId) {
 
   let index = 1;
   groupContent.innerHTML = ''; // Clear previous members
-
-  clanData.memberList.forEach(player => {
+  const sortedMembers = [...clanData.memberList].sort((a, b) =>  a.clanRank - b.clanRank);
+  sortedMembers.forEach(player => {
     listPlayers(player.wpName, player.wpNumber, player.name, player.expLevel, player.role, player.townHallLevel, index)
     index++;
   });

@@ -369,13 +369,14 @@ body::-webkit-scrollbar {
 .title {
   display: flex;
   align-items: center;
+
 }
 
 .clan-name {
   font-size: 1.3em;
 
   background-size: cover;
-
+transform: translateY(-0.2em);
   letter-spacing: 0.5px;
   font-weight: 900;
 }
@@ -1050,13 +1051,12 @@ button:hover {
 
   .clans {
     flex-direction: row;
-    transform: translateY(-2dvh);
+    transform: translateY(-5dvh);
     gap:5em;
   }
 
   .home_footer {
     width: 100%;
-
   }
 
   .home_footer form {

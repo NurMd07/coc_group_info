@@ -62,13 +62,13 @@ app.get('/clandata', async (req, res) => {
 
     apiResponse.data.memberList = mappedPlayers.map(player => {
       const member = apiResponse.data.memberList.find(m => m.tag === player.cocId);
-
+    
       if (member) {
 
         return { wpName: player.wpName, wpNumber: player.wpNumber, ...member };
       }
     }).filter(val => val !== undefined);;
-
+  
     res.json(apiResponse.data);
 
   } catch (err) {
