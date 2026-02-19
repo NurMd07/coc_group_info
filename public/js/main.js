@@ -313,7 +313,7 @@ clanDiv.forEach(div => {
 
     displayClanInfo(clanId);
     setTimeout(() => {
-      document.body.style.backgroundPosition = "10%";
+      // document.body.style.backgroundPosition = "80%";
       homeContainer.classList.add('hide');
       clanPage.classList.remove('hide');
     }, 200);
@@ -325,7 +325,7 @@ clanDiv.forEach(div => {
 backHome.addEventListener('click', () => {
 
   setTimeout(() => {
-    document.body.style.backgroundPosition = "80%";
+    // document.body.style.backgroundPosition = "80%";
     clanPage.classList.add('hide');
     homeContainer.classList.remove('hide');
   }, 300);
