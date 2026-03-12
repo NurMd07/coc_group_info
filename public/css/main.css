@@ -374,7 +374,7 @@ body::-webkit-scrollbar {
 
 .clan-name {
   font-size: 1.3em;
-
+  padding-top: 0.2em;
   background-size: cover;
 transform: translateY(-0.2em);
   letter-spacing: 0.5px;
