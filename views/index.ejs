@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="/images/favicon.png" type="image/png" />
     <title>Legendary Crew - Family</title>
-    <link rel="stylesheet" type="text/css" href="/css/transition.min.css" />
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
 
     <script src="/js/axios.min.js"></script>
@@ -13,7 +12,12 @@
   <body>
     <div class="home">
       <div class="home_coc_logo">
-        <img src="/images/coc-icon.png" />
+        <img
+          src="/images/coc-icon.png"
+          alt="Clash of Clans home - reload page"
+          role="button"
+          tabindex="0"
+        />
       </div>
       <div class="clans"></div>
       <div class="home_footer">
@@ -50,7 +54,7 @@
       </div>
     </div>
     <!-- clan page -->
-    <div transition-style="in:circle:center" class="clan_page hide">
+    <div class="clan_page hide">
       <div class="header">
         <div class="header_main">
           <div class="title">
@@ -117,8 +121,8 @@
             <span class="placeholder1">-</span>
             <span class="wp_name_title">WP UserName</span>
           </div>
-          <div class="group_content loader">
-            <div class="lds-facebook">
+          <div class="group_content loader" aria-busy="true">
+            <div class="lds-facebook" role="status" aria-label="Loading clan members">
               <div></div>
               <div></div>
               <div></div>

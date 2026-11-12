@@ -3,6 +3,7 @@
   --bg: #121212;
   --white: #ffffff;
   --red: #ff4d4d;
+  --accent-gold: #f4c430;
   --font: "Segoe UI", Roboto, sans-serif;
 }
 
@@ -69,8 +70,10 @@ body::-webkit-scrollbar {
   position: absolute;
   left: 8px;
   width: 16px;
-  background: #1d40a3;
-  animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  border-radius: 999px;
+  background: var(--accent-gold);
+  box-shadow: 0 0 12px rgba(244, 196, 48, 0.35);
+  animation: lds-facebook 900ms ease-in-out infinite;
 }
 
 .lds-facebook div:nth-child(1) {
@@ -102,14 +105,12 @@ body::-webkit-scrollbar {
 }
 
 .loader1 {
-  border: 2px solid #f3f3f3;
-  /* Light grey */
-  border-top: 2px solid #3498db;
-  /* Blue */
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: var(--accent-gold);
   border-radius: 50%;
   width: 10px;
   height: 10px;
-  animation: spin 1.3s linear infinite;
+  animation: spin 800ms linear infinite;
 }
 
 @keyframes spin {
@@ -159,6 +160,41 @@ body::-webkit-scrollbar {
 
 .home_coc_logo img {
   width: 65dvw;
+  cursor: pointer;
+  transition: transform 180ms ease;
+}
+
+.home_coc_logo img:hover {
+  transform: scale(1.04);
+}
+
+.home_coc_logo img:active {
+  transform: scale(0.96);
+}
+
+.home_coc_logo img:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 6px;
+  border-radius: 12px;
+}
+
+@keyframes logo-reload {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  35% {
+    transform: scale(1.1);
+  }
+
+  65% {
+    transform: scale(0.92);
+  }
+}
+
+.home_coc_logo img.is-reloading {
+  animation: logo-reload 360ms ease-in-out;
 }
 
 .clans {
@@ -174,7 +210,6 @@ body::-webkit-scrollbar {
 
 .clan_div {
   border-radius: 10px;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -188,8 +223,8 @@ body::-webkit-scrollbar {
       #222223);
   width: fit-content;
   margin: 1em;
-  transition: 0.5s;
-
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
 }
 
 .clan_div:nth-child(1) {
@@ -204,10 +239,8 @@ body::-webkit-scrollbar {
 }
 
 .clan_div:nth-child(1):hover {
-  transform: scale(0.9);
+  transform: translateY(-3px);
   box-shadow: -20px 20px 20px rgba(0, 0, 0, 0.5);
-  transition: transform 0.2s, box-shadow 0.2s;
-
   background: linear-gradient(to bottom,
       #daa520,
       #f4c430,
@@ -218,12 +251,20 @@ body::-webkit-scrollbar {
 }
 
 .clan_div:nth-child(2):hover {
-  transform: scale(0.9) skew(-1deg, 1deg);
-  transform: scale(0.9);
+  transform: translateY(-3px);
   box-shadow: -20px 20px 20px rgba(0, 0, 0, 0.5);
-  transition: transform 0.2s, box-shadow 0.2s;
   background: linear-gradient(to bottom,
       #D44242, #D9BB16);
+}
+
+.clan_div:nth-child(1):active,
+.clan_div:nth-child(2):active {
+  transform: scale(0.98);
+}
+
+.clan_div:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 3px;
 }
 
 .clan_div p {
@@ -289,18 +330,18 @@ body::-webkit-scrollbar {
   background-color: #000 !important;
 }
 
-@keyframes circle-in-center {
+@keyframes screen-enter {
   from {
-    clip-path: circle(0%);
+    opacity: 0;
   }
 
   to {
-    clip-path: circle(125%);
+    opacity: 1;
   }
 }
 
-[transition-style="in:circle:center"] {
-  animation: 2.5s cubic-bezier(0.25, 1, 0.3, 1) circle-in-center both;
+.screen-enter {
+  animation: 240ms ease-out screen-enter both;
 }
 
 
@@ -559,6 +600,13 @@ transform: translateY(-0.2em);
 
   overflow: scroll;
   overflow-x: hidden;
+}
+
+.empty_state {
+  padding: 2em 1em;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.9em;
+  text-align: center;
 }
 
 .group_content .list_item:nth-child(2n) {
@@ -903,7 +951,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: 0.5s;
+  transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
   outline: none;
   border: 0;
   font-family: "clash bold";
@@ -911,9 +959,20 @@ button {
 
 
 .homeBtn:hover {
-
+  transform: translateY(-2px);
   background: linear-gradient(45deg, var(--i), var(--j));
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0);
+}
+
+.homeBtn:active {
+  transform: scale(0.96);
+}
+
+.homeBtn:focus-visible,
+input[type="text"]:focus-visible,
+#join-button:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 3px;
 }
 
 .homeBtn svg {
@@ -1037,6 +1096,7 @@ button:hover {
   width: 4.5em;
   height: 4.5em;
 }
+
   body {
     background-position: center;
   }
@@ -1103,5 +1163,17 @@ button:hover {
     width: 1.2em;
   }
 
+}
 
+@media (prefers-reduced-motion: reduce) {
+  .home_coc_logo img,
+  .screen-enter,
+  .clan_div,
+  .homeBtn,
+  .loader1,
+  .lds-facebook div,
+  .btn-whatsapp-pulse {
+    animation: none;
+    transition: none;
+  }
 }

@@ -6,6 +6,7 @@ const trophiesCount = document.querySelector('.trophies_count');
 const groupContent = document.querySelector('.group_content');
 const wpMemberCountValue = document.querySelector('.wp_member_count_value');
 const titleHeading = document.querySelector('.title h1');
+const homeLogoImage = document.querySelector('.home_coc_logo img');
 const cocLogoImage = document.querySelector('.coc_logo img');
 const tagValue = document.querySelector('.tag_value');
 const groupFooterLeft = document.querySelector('.group_footer_left');
@@ -106,8 +107,6 @@ function listPlayers(wpNameValue, wpNumberValue, cocNameValue, cocXpValue, cocRo
   li.appendChild(column3);
   li.appendChild(column2);
   li.appendChild(column1);
-  groupContent.classList.remove('loader');
-  ldsFacebook.classList.add('hide');
   groupContent.appendChild(li);
 }
 
@@ -164,6 +163,8 @@ async function displayClans() {
     const clanDiv = document.createElement('div');
     clanDiv.classList.add('clan_div');
     clanDiv.dataset.clanId = clanId;
+    clanDiv.tabIndex = 0;
+    clanDiv.setAttribute('role', 'button');
 
     const headerImg = document.createElement('img');
     headerImg.classList.add('clan_div_clanlogo');
@@ -281,11 +282,28 @@ function displayClanInfo(clanId) {
 
   let index = 1;
   groupContent.innerHTML = ''; // Clear previous members
+  groupContent.appendChild(ldsFacebook);
+  groupContent.classList.add('loader');
+  groupContent.setAttribute('aria-busy', 'true');
+  ldsFacebook.classList.remove('hide');
+
   const sortedMembers = [...clanData.memberList].sort((a, b) =>  a.clanRank - b.clanRank);
-  sortedMembers.forEach(player => {
-    listPlayers(player.wpName, player.wpNumber, player.name, player.expLevel, player.role, player.townHallLevel, index)
-    index++;
-  });
+
+  if (sortedMembers.length === 0) {
+    const emptyState = document.createElement('p');
+    emptyState.classList.add('empty_state');
+    emptyState.textContent = 'No linked members yet.';
+    groupContent.appendChild(emptyState);
+  } else {
+    sortedMembers.forEach(player => {
+      listPlayers(player.wpName, player.wpNumber, player.name, player.expLevel, player.role, player.townHallLevel, index);
+      index++;
+    });
+  }
+
+  groupContent.classList.remove('loader');
+  groupContent.setAttribute('aria-busy', 'false');
+  ldsFacebook.classList.add('hide');
 }
 
 
@@ -293,7 +311,7 @@ const clanDiv = document.querySelectorAll('.clan_div');
 const backHome = document.querySelector('.back-home');
 
 clanDiv.forEach(div => {
-  div.addEventListener('click', () => {
+  const selectClan = () => {
 
     const clanId = div.dataset.clanId;
     activeClanId = clanId;
@@ -312,24 +330,32 @@ clanDiv.forEach(div => {
 
 
     displayClanInfo(clanId);
-    setTimeout(() => {
-      // document.body.style.backgroundPosition = "80%";
-      homeContainer.classList.add('hide');
-      clanPage.classList.remove('hide');
-    }, 200);
+    showScreen(homeContainer, clanPage);
+  };
+
+  div.addEventListener('click', selectClan);
+  div.addEventListener('keydown', event => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      selectClan();
+    }
   });
 });
 
 
 
 backHome.addEventListener('click', () => {
-
-  setTimeout(() => {
-    // document.body.style.backgroundPosition = "80%";
-    clanPage.classList.add('hide');
-    homeContainer.classList.remove('hide');
-  }, 300);
+  showScreen(clanPage, homeContainer);
 });
+
+function showScreen(currentScreen, nextScreen) {
+  currentScreen.classList.add('hide');
+  nextScreen.classList.remove('hide');
+  nextScreen.classList.remove('screen-enter');
+  // Force the class removal to apply so the entrance animation can restart.
+  void nextScreen.offsetWidth;
+  nextScreen.classList.add('screen-enter');
+}
 
 
 
@@ -388,12 +414,34 @@ function createFlake() {
 }
 
 // start a bunch of flakes
-for (let i = 0; i < numFlakes; i++) {
-  setTimeout(createFlake, i * 500);
+if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  for (let i = 0; i < numFlakes; i++) {
+    setTimeout(createFlake, i * 500);
+  }
 }
 
 titleHeading.addEventListener('click', () => {
   window.location.reload();
+});
+
+function reloadFromHomeLogo() {
+  if (homeLogoImage.classList.contains('is-reloading')) return;
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    window.location.reload();
+    return;
+  }
+
+  homeLogoImage.classList.add('is-reloading');
+  setTimeout(() => window.location.reload(), 380);
+}
+
+homeLogoImage.addEventListener('click', reloadFromHomeLogo);
+homeLogoImage.addEventListener('keydown', event => {
+  if (event.key === 'Enter' || event.key === ' ') {
+    event.preventDefault();
+    reloadFromHomeLogo();
+  }
 });
 
 cocLogoImage.addEventListener('click', () => {
